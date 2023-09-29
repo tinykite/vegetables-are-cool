@@ -1,5 +1,11 @@
 ---
+import { getCollection, getEntry } from 'astro:content';
 
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+// Example: retrieve `src/content/blog/**`
+const vegetables = await getCollection('vegetables');
+console.log(vegetables)
 ---
 
 <html lang="en">
@@ -12,5 +18,6 @@
 	</head>
 	<body>
 		<h1>My Astro Website</h1>
+		{vegetables.map(vegetable => <h2>{vegetable.data.title}</h2>)}
 	</body>
 </html>
