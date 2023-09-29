@@ -1,0 +1,11 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  vegetable: CollectionEntry<'vegetables'>;
+}
+
+const { vegetable } = Astro.props;
+const { Content } = await vegetable.render();
+---
+<h2>{vegetable.data.title}</h2>
+<Content />

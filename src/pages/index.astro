@@ -5,7 +5,7 @@ import { getCollection, getEntry } from 'astro:content';
 // Requires the name of the collection as an argument.
 // Example: retrieve `src/content/blog/**`
 const vegetables = await getCollection('vegetables');
-console.log(vegetables)
+import Card from '../components/Card.astro'
 ---
 
 <html lang="en">
@@ -18,6 +18,6 @@ console.log(vegetables)
 	</head>
 	<body>
 		<h1>My Astro Website</h1>
-		{vegetables.map(vegetable => <h2>{vegetable.data.title}</h2>)}
+		{vegetables.map(vegetable => <Card vegetable={vegetable} />)}
 	</body>
 </html>
