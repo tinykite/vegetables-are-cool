@@ -6,6 +6,10 @@ interface Props {
 
 const { vegetable } = Astro.props;
 const { Content } = await vegetable.render();
+
+console.log(vegetable)
 ---
+<img src=`/${vegetable.data.image}`/>
 <h2>{vegetable.data.title}</h2>
+{ vegetable.data.temperature && `Suggested Temperature: ${vegetable.data.temperature}`}
 <Content />

@@ -1,11 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
+import Card from '../components/Card.astro'
+import '../styles/reset.css'
 
 // Get all entries from a collection.
 // Requires the name of the collection as an argument.
 // Example: retrieve `src/content/blog/**`
 const vegetables = await getCollection('vegetables');
-import Card from '../components/Card.astro'
 ---
 
 <html lang="en">
@@ -14,10 +15,31 @@ import Card from '../components/Card.astro'
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Eat Your Vegetables</title>
 	</head>
 	<body>
-		<h1>How to Roast Vegetables</h1>
-		{vegetables.map(vegetable => <Card vegetable={vegetable} />)}
+	<div class="wrapper">
+		<h1 class="title">Eat Your Vegetables</h1>
+		<main class="main">
+			{vegetables.map(vegetable => <Card vegetable={vegetable} />)}
+		</main>
+	</div>
 	</body>
 </html>
+
+<style is:global>
+	h1 {
+		text-transform: uppercase;
+		font-size: 4.5rem;
+	}
+
+	body {
+		background-color: #FFF8EF;
+		color: #541F0F;
+	}
+
+	.wrapper {
+		max-width: 75ch;
+		margin: 12rem auto 3rem;
+	}
+</style>
