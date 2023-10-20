@@ -28,8 +28,17 @@ const vegetables = await getCollection('vegetables');
 </html>
 
 <style is:global>
+	@font-face {
+    font-family: "Eklektyk";
+    src: url(/fonts/Eklektyk-Regular.woff2) format('woff2'),
+         url(/fonts/Eklektyk-Regular.woff) format('woff');
+  	}
+
+	h1, h2 {
+		font-family: "Eklektyk";
+	}
+
 	h1 {
-		text-transform: uppercase;
 		font-size: 4.5rem;
 	}
 

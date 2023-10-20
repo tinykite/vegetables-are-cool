@@ -6,10 +6,38 @@ interface Props {
 
 const { vegetable } = Astro.props;
 const { Content } = await vegetable.render();
-
-console.log(vegetable)
 ---
-<img src=`/${vegetable.data.image}`/>
+<article class="entry">
+<img src=`/images/${vegetable.data.image}`/>
+<div>
 <h2>{vegetable.data.title}</h2>
-{ vegetable.data.temperature && `Suggested Temperature: ${vegetable.data.temperature}`}
 <Content />
+</div>
+</article>
+
+<style>
+  .entry {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    column-gap: 1rem;
+    margin-block-start: 2rem;
+  }
+
+  .entry:first-of-type {
+    margin-block-start: 5rem;
+  }
+
+  .entry:nth-child()
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  :global(p) {
+    margin-block-start: 0.5rem;
+  }
+
+  :global(a) {
+    color: inherit;
+  }
+</style>
